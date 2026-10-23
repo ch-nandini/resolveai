@@ -1,0 +1,7 @@
+langgraph>=0.2
+streamlit>=1.37
+pandas>=2.0
+pytest>=8.0
+# optional, pick one for real-LLM runs:
+# anthropic>=0.40
+# openai>=1.40

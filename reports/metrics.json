@@ -1,0 +1,252 @@
+{
+  "metrics": {
+    "llm": "mock",
+    "orchestrator": "langgraph",
+    "cases": 200,
+    "autonomous_resolution_rate_pct": 48.0,
+    "correct_autonomous_resolution_rate_pct": 48.0,
+    "decision_accuracy_pct": 83.5,
+    "escalation_precision_pct": 68.3,
+    "escalation_recall_pct": 100.0,
+    "unsafe_auto_approvals": 0,
+    "wrong_auto_denials": 0,
+    "over_escalations": 33,
+    "refund_amount_accuracy_pct": 100.0,
+    "tool_calls": 800,
+    "tool_first_attempt_success_pct": 92.2,
+    "tool_success_after_retries_pct": 99.5,
+    "tool_retries": 70,
+    "loop_guard_trips": 0,
+    "avg_steps_per_case": 5,
+    "avg_tool_calls_per_case": 4,
+    "latency_p50_ms": 374.5,
+    "latency_p95_ms": 734.6,
+    "avg_tokens_per_case": 4310,
+    "avg_cost_per_case_usd": 0.00477,
+    "cost_per_autonomous_resolution_usd": 0.00994,
+    "confusion_matrix": {
+      "approve": {
+        "approve": 63,
+        "deny": 0,
+        "escalate": 27
+      },
+      "deny": {
+        "approve": 0,
+        "deny": 33,
+        "escalate": 6
+      },
+      "escalate": {
+        "approve": 0,
+        "deny": 0,
+        "escalate": 71
+      }
+    },
+    "examples": {
+      "unsafe_auto_approvals": [],
+      "wrong_auto_denials": [],
+      "over_escalations": [
+        "CASE-0002",
+        "CASE-0008",
+        "CASE-0020",
+        "CASE-0023",
+        "CASE-0031",
+        "CASE-0037",
+        "CASE-0038",
+        "CASE-0047",
+        "CASE-0064",
+        "CASE-0068"
+      ]
+    }
+  },
+  "by_scenario": [
+    {
+      "scenario": "ambiguous_request",
+      "expected": "escalate",
+      "n": 10,
+      "accuracy_pct": 100.0,
+      "approve": 0,
+      "deny": 0,
+      "escalate": 10
+    },
+    {
+      "scenario": "changed_mind",
+      "expected": "approve",
+      "n": 14,
+      "accuracy_pct": 78.6,
+      "approve": 11,
+      "deny": 0,
+      "escalate": 3
+    },
+    {
+      "scenario": "changed_mind_final_sale",
+      "expected": "deny",
+      "n": 5,
+      "accuracy_pct": 80.0,
+      "approve": 0,
+      "deny": 4,
+      "escalate": 1
+    },
+    {
+      "scenario": "changed_mind_outside_window",
+      "expected": "deny",
+      "n": 7,
+      "accuracy_pct": 85.7,
+      "approve": 0,
+      "deny": 6,
+      "escalate": 1
+    },
+    {
+      "scenario": "damaged",
+      "expected": "approve",
+      "n": 20,
+      "accuracy_pct": 70.0,
+      "approve": 14,
+      "deny": 0,
+      "escalate": 6
+    },
+    {
+      "scenario": "damaged_final_sale",
+      "expected": "approve",
+      "n": 6,
+      "accuracy_pct": 83.3,
+      "approve": 5,
+      "deny": 0,
+      "escalate": 1
+    },
+    {
+      "scenario": "damaged_outside_window",
+      "expected": "deny",
+      "n": 5,
+      "accuracy_pct": 100.0,
+      "approve": 0,
+      "deny": 5,
+      "escalate": 0
+    },
+    {
+      "scenario": "duplicate_request",
+      "expected": "deny",
+      "n": 6,
+      "accuracy_pct": 100.0,
+      "approve": 0,
+      "deny": 6,
+      "escalate": 0
+    },
+    {
+      "scenario": "fraud_signals",
+      "expected": "escalate",
+      "n": 10,
+      "accuracy_pct": 100.0,
+      "approve": 0,
+      "deny": 0,
+      "escalate": 10
+    },
+    {
+      "scenario": "high_value",
+      "expected": "escalate",
+      "n": 16,
+      "accuracy_pct": 100.0,
+      "approve": 0,
+      "deny": 0,
+      "escalate": 16
+    },
+    {
+      "scenario": "high_value_denial",
+      "expected": "deny",
+      "n": 4,
+      "accuracy_pct": 75.0,
+      "approve": 0,
+      "deny": 3,
+      "escalate": 1
+    },
+    {
+      "scenario": "late_claim_on_time",
+      "expected": "deny",
+      "n": 6,
+      "accuracy_pct": 83.3,
+      "approve": 0,
+      "deny": 5,
+      "escalate": 1
+    },
+    {
+      "scenario": "late_delivery",
+      "expected": "approve",
+      "n": 12,
+      "accuracy_pct": 75.0,
+      "approve": 9,
+      "deny": 0,
+      "escalate": 3
+    },
+    {
+      "scenario": "new_account",
+      "expected": "escalate",
+      "n": 10,
+      "accuracy_pct": 100.0,
+      "approve": 0,
+      "deny": 0,
+      "escalate": 10
+    },
+    {
+      "scenario": "not_delivered_in_window",
+      "expected": "deny",
+      "n": 6,
+      "accuracy_pct": 66.7,
+      "approve": 0,
+      "deny": 4,
+      "escalate": 2
+    },
+    {
+      "scenario": "not_delivered_lost",
+      "expected": "approve",
+      "n": 12,
+      "accuracy_pct": 66.7,
+      "approve": 8,
+      "deny": 0,
+      "escalate": 4
+    },
+    {
+      "scenario": "not_delivered_no_signature",
+      "expected": "approve",
+      "n": 10,
+      "accuracy_pct": 60.0,
+      "approve": 6,
+      "deny": 0,
+      "escalate": 4
+    },
+    {
+      "scenario": "not_delivered_signed",
+      "expected": "escalate",
+      "n": 8,
+      "accuracy_pct": 100.0,
+      "approve": 0,
+      "deny": 0,
+      "escalate": 8
+    },
+    {
+      "scenario": "order_not_owned",
+      "expected": "escalate",
+      "n": 7,
+      "accuracy_pct": 100.0,
+      "approve": 0,
+      "deny": 0,
+      "escalate": 7
+    },
+    {
+      "scenario": "serial_refunder",
+      "expected": "escalate",
+      "n": 10,
+      "accuracy_pct": 100.0,
+      "approve": 0,
+      "deny": 0,
+      "escalate": 10
+    },
+    {
+      "scenario": "wrong_item",
+      "expected": "approve",
+      "n": 16,
+      "accuracy_pct": 62.5,
+      "approve": 10,
+      "deny": 0,
+      "escalate": 6
+    }
+  ]
+}
